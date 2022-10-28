@@ -1,13 +1,15 @@
-def line():
-    print("______________________________")
+# Made By Homam Manasra
+# Sep / 2021
+
+newline = lambda: print()
+space = lambda: print("_" * 30, end="\n\n")
 
 
-def newline():
-    print(" ")
-
-
-def space():
-    print("_" * 30, '\n')
+def show_cards(CardsType):
+    for i in CardsType:
+        for j in i:
+            if j.Quantity > 0:
+                j.DisplayQuantities()
 
 
 class Cards:
@@ -18,7 +20,7 @@ class Cards:
         self.Quantity = Quantity
 
     def DisplayQuantities(self):
-        if len(self.unit) <= 6: 
+        if len(self.unit) <= 6:  # and len(self.unit) < 10  :
             print(self.unit, "\t\t = ", self.Quantity)
         elif len(self.unit) > 6 or len(self.unit) == 10:
             print(self.unit, "\t = ", self.Quantity)
@@ -130,32 +132,15 @@ orange_data = [od05, od1, od3, od6, od7, od8, od9, od11, od12, od16]
 orange_all_types = [orange_mobile, orange_nos, orange_data]
 
 
-def show_all_zain_cards():
-    for i in zain_all_types:
-        for j in i:
-            if j.Quantity > 0:
-                j.DisplayQuantities()
-
-
-def show_all_umniah_cards():
-    for i in orange_all_types:
-        for j in i:
-            if j.Quantity > 0:
-                j.DisplayQuantities()
-
-
-def show_all_orange_cards():
-    for i in orange_all_types:
-        for j in i:
-            if j.Quantity > 0:
-                j.DisplayQuantities()
-
-
 def show_all_cards():
-    show_all_zain_cards()
-    show_all_umniah_cards()
-    show_all_orange_cards()
+    show_cards(zain_all_types)
+    show_cards(orange_all_types)
+    show_cards(uminah_all_types)
 
+
+"""
+You can add your own Functions after this comment 
+"""
 
 print("Card quantites are : \n")
 show_all_cards()
